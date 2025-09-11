@@ -24,7 +24,7 @@ export const products = [
     name: "Mouse Gamer RGB",
     brand: "ClickPro",
     price: 189.9,
-    image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3",
+    image: "https://i.pinimg.com/736x/29/ce/0d/29ce0dd3009ff3e76e741259821f75fe.jpg",
     category: "Periféricos",
     stock: 30,
     description: "12.000 DPI, 7 botões, iluminação RGB."
