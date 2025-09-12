@@ -1,28 +1,27 @@
 import { formatCurrency } from "../utils/formatCurrency";
+import { useCart } from "../context/CartContext";
 
-export default function ProductCard({ product, onAdd }) {
+export default function ProductCard({ product }) {
+  const { addToCart } = useCart();
+
   return (
-    <div className="bg-white rounded-2xl shadow p-4 flex flex-col">
+    <div className="border rounded-lg p-4 shadow hover:shadow-lg transition">
       <img
         src={product.image}
         alt={product.name}
-        className="h-40 w-full object-cover rounded-xl"
+        className="w-full h-40 object-cover rounded"
       />
-
-      <div className="mt-3 flex-1">
-        <h3 className="text-lg font-semibold">{product.name}</h3>
-        <p className="text-sm text-gray-500">{product.brand}</p>
-        <p className="mt-2 font-bold">
-  R$ {product.price.toLocaleString("pt-BR")}
-</p>
-      </div>
-
+      <h3 className="text-lg font-semibold mt-2">{product.name}</h3>
+      <p className="text-gray-600">
+        R$ {product.price.toLocaleString("pt-BR")}
+      </p>
       <button
-        onClick={() => onAdd && onAdd(product)}
-        className="mt-4 bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition"
+        onClick={() => addToCart(product)}
+        className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
       >
-        Adicionar
+        Adicionar ao Carrinho
       </button>
     </div>
   );
 }
+
