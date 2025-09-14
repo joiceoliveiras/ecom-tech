@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 export default function Navbar() {
+  const { cart } = useCart();
   return (
     <nav className="bg-white shadow-md px-6 py-4 flex items-center justify-between">
       {/* Logo */}
@@ -21,8 +23,8 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/carrinho" className="hover:text-blue-600 transition">
-            Carrinho
+          <Link to="/carrinho">
+            Carrinho ({cart.length})
           </Link>
         </li>
       </ul>
