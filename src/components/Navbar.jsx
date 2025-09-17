@@ -1,33 +1,47 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
 
 export default function Navbar() {
+  const { user, logout } = useAuth();
   const { cart } = useCart();
+
   return (
-    <nav className="bg-white shadow-md px-6 py-4 flex items-center justify-between">
-      {/* Logo */}
-      <div className="text-2xl font-bold text-blue-600">
-        Ecom<span className="text-gray-800">Tech</span>
+    <nav className="bg-gray-800 text-white px-6 py-3 flex justify-between">
+      <Link to="/" className="text-xl font-bold">
+        ecom<span className="text-blue-400">tech</span>
+      </Link>
+      
+      <div className="flex gap-5">
+        <Link to="/produtos">Produtos</Link>
+
+        <Link to="/carrinho" className="relative">
+          Carrinho
+          {cart.length > 0 && (
+            <span
+              className="absolute -top-2 -right-3 bg-red-500 text-xs text-white rounded-full px-2 py-0.5"
+            >
+              {cart.length}
+            </span>
+          )}
+        </Link>
       </div>
 
-      {/* Links */}
-      <ul className="flex gap-6 text-gray-700 font-medium">
-        <li>
-          <Link to="/login" className="hover:text-blue-600 transition">
-            Login
-          </Link>
-        </li>
-        <li>
-          <Link to="/produtos" className="hover:text-blue-600 transition">
-            Produtos
-          </Link>
-        </li>
-        <li>
-          <Link to="/carrinho">
-            Carrinho ({cart.length})
-          </Link>
-        </li>
-      </ul>
+      <div>
+        {user ? (
+          <>
+            <span className="mr-4">{user.email}</span>
+            <button
+              onClick={logout}
+              className="bg-red-500 px-3 py-1 rounded hover:bg-red-600"
+            >
+              Sair
+            </button>
+          </>
+        ) : (
+          <Link to="/login">Login</Link>
+        )}
+      </div>
     </nav>
-  )
+  );
 }
