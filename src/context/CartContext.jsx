@@ -50,13 +50,18 @@ export function CartProvider({ children }) {
       )
     );
   }
+  
+ const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, updateQuantity, totalItems }}
+    >
       {children}
     </CartContext.Provider>
   );
 }
+
 
 export function useCart() {
   return useContext(CartContext);

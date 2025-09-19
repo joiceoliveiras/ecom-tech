@@ -4,7 +4,7 @@ import { useCart } from "../context/CartContext";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
-  const { cart } = useCart();
+  const { totalItems  } = useCart();
 
   return (
     <nav className="bg-gray-800 text-white px-6 py-3 flex justify-between">
@@ -17,11 +17,11 @@ export default function Navbar() {
 
         <Link to="/carrinho" className="relative">
           Carrinho
-          {cart.length > 0 && (
+          {totalItems  > 0 && (
             <span
               className="absolute -top-2 -right-3 bg-red-500 text-xs text-white rounded-full px-2 py-0.5"
             >
-              {cart.length}
+              {totalItems }
             </span>
           )}
         </Link>
