@@ -1,8 +1,8 @@
 import { useCart } from "../context/CartContext";
-
+import { useNavigate } from "react-router-dom";
 export default function Cart() {
   const { cart, removeFromCart, updateQuantity } = useCart();
-
+ const navigate = useNavigate();
   const subtotal = cart.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
@@ -57,9 +57,13 @@ export default function Cart() {
         Subtotal: R$ {subtotal.toLocaleString("pt-BR")}
       </div>
 
-      <button className="mt-4 bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
+      <button
+        onClick={() => navigate("/checkout")}
+        className="mt-4 bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600"
+      >
         Finalizar Compra
       </button>
+      
     </div>
   );
 }

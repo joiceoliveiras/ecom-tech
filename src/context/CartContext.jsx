@@ -3,6 +3,7 @@ import { useAuth } from "./AuthContext";
 
 const CartContext = createContext();
 
+
 export function CartProvider({ children }) {
    const { user } = useAuth();
   const [cart, setCart] = useState([]);
@@ -51,11 +52,15 @@ export function CartProvider({ children }) {
     );
   }
   
+function clearCart() {
+    setCart([]);
+  }
+
  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, updateQuantity, totalItems }}
+      value={{ cart, addToCart, removeFromCart, updateQuantity, totalItems, clearCart }}
     >
       {children}
     </CartContext.Provider>

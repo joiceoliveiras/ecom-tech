@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Produtos from "./pages/Produtos";
 import Carrinho from "./pages/Carrinho";
 import PrivateRoute from "./components/PrivateRoute";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -29,8 +30,20 @@ function App() {
             </PrivateRoute>
           }
         />
+<Route
+  path="/checkout"
+  element={
+    <PrivateRoute>
+      <Checkout />
+    </PrivateRoute>
+  }
+/>
+
+
       </Routes>
+      
     </>
+    
   );
 }
 
