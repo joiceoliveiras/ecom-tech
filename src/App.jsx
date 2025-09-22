@@ -5,7 +5,7 @@ import Produtos from "./pages/Produtos";
 import Carrinho from "./pages/Carrinho";
 import PrivateRoute from "./components/PrivateRoute";
 import Checkout from "./pages/Checkout";
-
+import OrderSuccess from "./pages/OrderSuccess";
 function App() {
   return (
     <>
@@ -38,7 +38,7 @@ function App() {
     </PrivateRoute>
   }
 />
-
+ <Route path="/order-success" element={<OrderSuccess />} />
 
       </Routes>
       
