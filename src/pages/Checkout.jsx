@@ -1,7 +1,10 @@
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
+  const navigate = useNavigate();
+
   const { cart, updateQuantity, removeFromCart, clearCart } = useCart();
   const [success, setSuccess] = useState(false);
   const [form, setForm] = useState({ nome: "", endereco: "", pagamento: "" });
@@ -18,17 +21,10 @@ export default function Checkout() {
       return;
     }
     clearCart();
-    setSuccess(true);
+    navigate("/order-success");
   }
 
-  if (success) {
-    return (
-      <div className="p-6 text-center">
-        <h2 className="text-2xl font-bold mb-4">Compra realizada com sucesso 🎉</h2>
-        <p>Obrigado por comprar na <strong>EcomTech</strong>!</p>
-      </div>
-    );
-  }
+  
 
   return (
     <div className="p-6 max-w-lg mx-auto">
