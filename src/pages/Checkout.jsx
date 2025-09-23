@@ -20,6 +20,17 @@ export default function Checkout() {
       alert("Preencha todos os campos!");
       return;
     }
+    
+    const orderData = {
+      cliente: form,
+      itens: cart,
+      total: subtotal,
+      data: new Date().toLocaleString("pt-BR"),
+    };
+
+    localStorage.setItem("pedidoFinalizado", JSON.stringify(orderData));
+
+
     clearCart();
     navigate("/order-success");
   }
