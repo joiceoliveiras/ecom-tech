@@ -6,11 +6,13 @@ import Carrinho from "./pages/Carrinho";
 import PrivateRoute from "./components/PrivateRoute";
 import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
+import Home from "./pages/Home";
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
 
         <Route
