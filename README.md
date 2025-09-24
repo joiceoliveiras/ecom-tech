@@ -1,12 +1,33 @@
-# React + Vite
+# Loja Virtual
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto simula uma loja online com funcionalidades de login fake, lista de produtos, carrinho com persistência e checkout.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades
+- Login fake com rotas protegidas
+- Lista de produtos com busca e ordenação
+- Carrinho com persistência no localStorage, +/− e total
+- Checkout com confirmação de compra
+- Layout responsivo
 
-## Expanding the ESLint configuration
+## 📸 Prints
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Página Inicial
+![Home](./src/assets/imgs/home.png)
+
+### Lista de Produtos
+![Produtos](./src/assets/imgs/produtos.png)
+
+### Carrinho
+![Carrinho](./src/assets/imgs/carrinho.png)
+
+
+## Deploy
+Acesse o projeto aqui: [🔗 Clique para ver o site](https://joiceoliveiras.github.io/ecom-tech/)
+
+
+## Tecnologias
+- React + Vite
+- React Router
+- TailwindCSS
+- LocalStorage
